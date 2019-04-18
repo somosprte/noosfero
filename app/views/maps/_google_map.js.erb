@@ -75,12 +75,12 @@ function pointToAddress(latlng) {
        location_values.address += ', ' + location_values.sublocality;
     }
 
-    $('#profile_data_address').val(location_values.address)
-    $('#profile_data_zip_code').val(location_values.zip_code)
-    $('#profile_data_district').val(location_values.district)
-    selectOrSetOption('#profile_data_city', location_values.city)
-    selectOrSetOption('#profile_data_state', location_values.state)
-    selectOrSetOption('#profile_data_country', location_values.country)
+    $('.profile-address').val(location_values.address)
+    $('.profile-zip-code').val(location_values.zip_code)
+    $('.profile-district').val(location_values.district)
+    selectOrSetOption('.profile-city', location_values.city)
+    selectOrSetOption('.profile-state', location_values.state)
+    selectOrSetOption('.profile-country', location_values.country)
   });
 }
 
@@ -108,12 +108,12 @@ function addressToPoint() {
   jQuery('.address-fields').addClass("loading");
 
   var address_components = [
-    jQuery('#profile_data_address').val(),
-    jQuery('#profile_data_zip_code').val(),
-    jQuery('#profile_data_district').val(),
-    valueForSelect('#profile_data_city'),
-    valueForSelect('#profile_data_state'),
-    valueForSelect('#profile_data_country')
+    jQuery('.profile-address').val(),
+    jQuery('.profile-zip-code').val(),
+    jQuery('.profile-district').val(),
+    valueForSelect('.profile-city'),
+    valueForSelect('.profile-state'),
+    valueForSelect('.profile-country')
   ];
 
   var address = address_components.filter(function (el) {
