@@ -26,8 +26,18 @@ class RoleController < AdminController
 
   def edit
     @role = environment.roles.find(params[:id])
-  end
+  end 
 
+  def destroy
+    @role = environment.roles.find(params[:id])
+    if @role.destroy
+      session[:notice] = _('Role removed successfully')
+    else
+      session[:notice] = _('Failed to remove role')
+    end
+    redirect_to :action => 'index'
+  end 
+  
   def update
     @role = environment.roles.find(params[:id])
     if @role.update(params[:role])
