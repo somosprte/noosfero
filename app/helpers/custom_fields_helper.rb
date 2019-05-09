@@ -9,6 +9,7 @@ module CustomFieldsHelper
     names['link'] = _('Link')
     names['list'] = _('List')
     names['checkbox'] = _('Checkbox')
+    names['multiple_list'] = _('Multiple List')
     names[format]
   end
 
@@ -21,6 +22,7 @@ module CustomFieldsHelper
     forms << [_('Link'), form_for_format(customized_type,'link')]
     forms << [_('List'), form_for_format(customized_type,'list')]
     forms << [_('Checkbox'), form_for_format(customized_type,'checkbox')]
+    forms << [_('Multiple List'), form_for_format(customized_type,'multiple_list')]
     forms
   end
 
@@ -46,7 +48,7 @@ module CustomFieldsHelper
 
   def value_for_format format, value
     case format
-    when 'text', 'list', 'numeric', 'date', 'string'
+    when 'text', 'list', 'numeric', 'date', 'string', 'multiple_list'
       value
     when 'checkbox'
       value == "1" ? _('Yes') : _('No')
