@@ -7,6 +7,28 @@ module ProfileImageHelper
     end
   end
 
+  def default_or_themed_map_icon(profile=nil)
+    icon_path = "images/icons-map/"
+    full_theme_path = File.join(theme_path, icon_path)[1..-1]
+    root_path = icon_path
+    icon_list = []
+
+    if profile.present?
+      if profile.kinds.first.present?
+        icon_name = [profile.class.name.to_slug, profile.kinds.first.name.to_slug].join('-')
+        icon_list << full_theme_path + icon_name + '.png'
+      end
+      icon_list << full_theme_path + profile.class.name.to_slug + '.png'
+      icon_list << full_theme_path + 'profile.png'
+      icon_list << root_path + profile.class.name.to_slug + '.png'
+    end
+    icon_list << root_path + 'profile.png'
+
+    icon_list.each do |icon|
+      return '/' + icon if File.exists?(Rails.root.join('public', icon))
+    end
+  end
+
   def gravatar_default
     (respond_to?(:theme_option) && theme_option.present? && theme_option['gravatar']) || NOOSFERO_CONF['gravatar'] || 'mm'
   end
