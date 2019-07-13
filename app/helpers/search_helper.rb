@@ -12,7 +12,9 @@ module SearchHelper
         'more_active' => _('More active'),
         'more_recent' => _('More recent'),
         'more_relevant' => _('More relevant'),
-        'more_comments' => _('More comments')
+        'more_comments' => _('More comments'),
+        'alpha_az' => _('A-Z'),
+        'alpha_za' => _('Z-A')
       },
       :display => {
         'map' => _('Map'),

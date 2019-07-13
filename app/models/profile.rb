@@ -29,7 +29,7 @@ class Profile < ApplicationRecord
   }
 
   SEARCH_FILTERS = {
-    :order => %w[more_recent],
+    :order => %w[more_recent alpha_az alpha_za],
     :display => %w[compact]
   }
 
@@ -282,6 +282,8 @@ class Profile < ApplicationRecord
   scope :more_popular, -> { }
   scope :more_active, -> { order 'profiles.activities_count DESC' }
   scope :more_recent, -> { order "profiles.created_at DESC" }
+  scope :alpha_az, -> { order "profiles.name ASC" }
+  scope :alpha_za, -> { order "profiles.name DESC" }
 
   scope :followed_by, -> person{
     distinct.select('profiles.*').
@@ -1109,6 +1111,12 @@ private :generate_url, :url_options
 
   def more_recent_label
     _("Since: ")
+  end
+
+  def alpha_az_label
+  end
+
+  def alpha_za_label
   end
 
   def recent_actions
