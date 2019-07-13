@@ -279,6 +279,8 @@ module FormsHelper
     else
       folders = profile.folders.where(find_options)
     end
+    form_field_class = html_options[:class] || 'select-profile-folder'
+    form_field_class += '-form-field'
     result = labelled_form_field(
       label_text,
       select_tag(
@@ -289,7 +291,7 @@ module FormsHelper
           default_value.to_s
         ),
         html_options.merge(js_options)
-      )
+      ), nil, {id: html_options[:id], class: form_field_class}
     )
     return result
   end
