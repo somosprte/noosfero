@@ -3,7 +3,8 @@
 </div>
 
 <div id='search-subheader'>
-  <%= assets_submenu(@asset) %>
+  <%= templates_submenu(@asset) %>
+  <%= kinds_submenu(@asset) %>
   <%= filters(@asset) if asset_class(@asset) == Enterprise %>
 </div>
 <div class="search-field">

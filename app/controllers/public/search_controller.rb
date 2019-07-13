@@ -14,6 +14,7 @@ class SearchController < PublicController
   before_action :load_query, :except => :suggestions
   before_action :load_order, :except => :suggestions
   before_action :load_templates, :except => :suggestions
+  before_action :load_kinds, :except => :suggestions
   before_action :load_kind, :only => [:people, :enterprises, :communities]
 
   # Backwards compatibility with old URLs
@@ -209,6 +210,11 @@ class SearchController < PublicController
   def load_templates
     @templates = {}
     @templates[@asset] = environment.send(@asset.to_s).templates if [:people, :enterprises, :communities].include?(@asset)
+  end
+
+  def load_kinds
+    @kinds = {}
+    @kinds[@asset] = environment.kinds.where(type: @asset.to_s.camelize.singularize) if [:people, :enterprises, :communities].include?(@asset)
   end
 
   def load_kind
