@@ -18,6 +18,12 @@
   </div>
 <% end %>
 
+<div>
+    <% if profile.person? %>
+    <span><%= _('Membro desde: %{month}/%{year}') % { :year => block.owner.created_at.year, :month => block.owner.created_at.month } %></span>
+  <% end %>
+</div>
+
 <div class="profile-info-options">
   <%= render_profile_actions block.owner.class %>
 </div>
