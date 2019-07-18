@@ -99,7 +99,8 @@ module ProfileHelper
       :article_tags => _('Tags'),
       :followed_profiles => _('Following'),
       :basic_information => _('Basic information'),
-      :contact => _('Contact')
+      :contact => _('Contact'),
+      :admins => 'Administrador(es)'
     }
   end
 
