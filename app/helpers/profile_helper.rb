@@ -166,7 +166,7 @@ module ProfileHelper
   end
 
   def treat_sex(gender)
-    { 'male' => _('Male'), 'female' => _('Female') }[gender]
+    { 'male' => _('Male'), 'female' => _('Female'), 'other' => _('Outro') }[gender]
   end
 
   def treat_date(date)
