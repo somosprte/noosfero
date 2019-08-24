@@ -12,6 +12,7 @@
       </td>
       <td class='actions'>
         <%= button_without_text :edit, _('Edit'), :action => 'edit', :id => role %>
+        <%= button_without_text(:trash, _('Remove'), {:action => 'destroy', :id => role}, {:method => :delete, data: {confirm: _('Are you sure you want to remove this role?')}}) %>
       </td>
     </tr>
   <% end %>
