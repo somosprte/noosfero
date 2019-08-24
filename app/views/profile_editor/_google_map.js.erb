@@ -85,12 +85,12 @@ function addressToPoint() {
   jQuery('#location-support-fields').addClass("loading");
 
   var address_components = [
-    jQuery('#profile_data_address').val(),
-    jQuery('#profile_data_zip_code').val(),
-    jQuery('#profile_data_district').val(),
-    jQuery('#profile_data_city').val(),
-    jQuery('#profile_data_state').val(),
-    jQuery('#profile_data_country').val()
+    jQuery('.profile-address').val(),
+    jQuery('.profile-zip-code').val(),
+    jQuery('.profile-district').val(),
+    jQuery('.profile-city').val(),
+    jQuery('.profile-state').val(),
+    jQuery('.profile-country').val()
   ];
 
   var address = address_components.filter(function (el) {
