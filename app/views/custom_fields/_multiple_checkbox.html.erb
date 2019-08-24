@@ -1,0 +1,11 @@
+<%
+# This regex captures 4 cases:
+#   * Only one option selected: 'value'
+#   * First option selected: 'value|v1'
+#   * Middle option selected: 'v1|v2|...|value|...|vn'
+#   * Last option selected: 'v1|value'
+%>
+<%= label_tag field.name, nil, class: 'formlabel'%>
+<% field.extras.map do |value| %>
+    <%= labelled_check_box(value, name+'[]', value, profile.custom_value(field.name).match(/^#{value}$|^#{value}\||\|#{value}\||\|#{value}$/), {add_hidden: false} )%>
+<% end %>

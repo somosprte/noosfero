@@ -99,7 +99,7 @@ module Customizable
         end
 
         if value.is_a?(Hash)
-          custom_field_value.value = value['value'].to_s
+          custom_field_value.value = value['value'].is_a?(Array) ? value['value'].join('|') : value['value'].to_s
           if value.has_key?('public')
             is_public = value['public']=="true" || value['public']==true
             custom_field_value.public = is_public
