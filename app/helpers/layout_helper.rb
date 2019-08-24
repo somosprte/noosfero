@@ -48,7 +48,7 @@ module LayoutHelper
 
   def noosfero_stylesheets
     plugins_stylesheets = @plugins.select(&:stylesheet?).map { |plugin|
-      plugin.class.public_path('style.css', true)
+      plugin.class.public_path('style', true)
     }
     global_css_pub = "/designs/themes/#{session[:theme] || environment.theme}/global.css"
     global_css_at_fs = Rails.root.join 'public' + global_css_pub
@@ -62,7 +62,7 @@ module LayoutHelper
       # FIXME: caching does not work with asset pipeline
       #cacheid = "cache/plugins-#{Digest::MD5.hexdigest plugins_stylesheets.to_s}"
       plugins_stylesheets.map do |plugin_stylesheet|
-        if File.exists?(File.join(Rails.root.join, 'public', plugin_stylesheet))
+        if Dir.glob(File.join(Rails.root.join, 'public', plugin_stylesheet + '.{css,scss}')).any?
           output << stylesheet_link_tag(plugin_stylesheet)
         end
       end
