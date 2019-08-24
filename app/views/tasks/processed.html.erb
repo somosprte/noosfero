@@ -23,8 +23,8 @@
         <%= labelled_form_field(_('Requestor:'), text_field_tag('filter[requestor]', @filter[:requestor])) %>
         <%= labelled_form_field(_('Closed by:'), text_field_tag('filter[closed_by]', @filter[:closed_by])) %>
       </div>
-      <%= labelled_form_field(_('Creation date'), date_range_field('filter[created_from]', 'filter[created_until]', @filter[:created_from], @filter[:created_until], { :change_month => true, :change_year => true, :date_format => 'yy-mm-dd' }, { :size => 14, :from_id => 'filter_created_from', :to_id => 'filter_created_until' })) %>
-      <%= labelled_form_field(_('Processed date'), date_range_field('filter[closed_from]', 'filter[closed_until]', @filter[:closed_from], @filter[:closed_until], { :change_month => true, :change_year => true, :date_format => 'yy-mm-dd' }, { :size => 14, :from_id => 'filter_closed_from', :to_id => 'filter_closed_until' })) %>
+      <%= labelled_form_field(_('Creation date'), date_range_field('filter[created_from]', 'filter[created_until]', @filter[:created_from], @filter[:created_until], { :change_month => true, :change_year => true }, { :size => 14, :from_id => 'filter_created_from', :to_id => 'filter_created_until' })) %>
+      <%= labelled_form_field(_('Processed date'), date_range_field('filter[closed_from]', 'filter[closed_until]', @filter[:closed_from], @filter[:closed_until], { :change_month => true, :change_year => true }, { :size => 14, :from_id => 'filter_closed_from', :to_id => 'filter_closed_until' })) %>
 
       <div class="actions">
         <%= submit_button(:search, _('Search')) %>

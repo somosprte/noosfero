@@ -21,7 +21,7 @@
 <div class='formfieldline'>
   <%= date_range_field('form[beginning]', 'form[ending]', @form.beginning, @form.ending,
       { :time => true, :change_month => true, :change_year => true,
-        :date_format => 'yy-mm-dd', :time_format => 'hh:mm' }, { :size => 14 }) %>
+        :time_format => 'hh:mm' }, { :size => 14 }) %>
 </div>
 
 <%= content_tag('h4', _('Access')) %>
