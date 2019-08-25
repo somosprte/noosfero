@@ -102,8 +102,19 @@ module LayoutHelper
     if profile then profile.layout_template else environment.layout_template end
   end
 
-  def addthis_javascript
-    NOOSFERO_CONF['addthis_enabled'] ? '<script src="https://s7.addthis.com/js/152/addthis_widget.js"></script>' : ''
+  def addthis_javascript(url, title, description)
+    if NOOSFERO_CONF['addthis_enabled']
+      return <<-eof
+      <script type="text/javascript">
+        var addthis_share = {
+          url: "#{url}",
+          title: "#{title}",
+          description: "#{description}",
+        }
+      </script>
+      <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=#{AddThis.addthis_pubid}"></script>
+      eof
+    end
   end
 
 end
