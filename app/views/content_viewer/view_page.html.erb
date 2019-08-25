@@ -20,10 +20,6 @@
 
 <%= render :partial => 'article_field_values', locals: { fields: @page.metadata['custom_fields'] || [] } %>
 
-<% if NOOSFERO_CONF['addthis_enabled'] %>
-  <%= render :partial => 'addthis' %>
-<% end %>
-
 <%= render partial: 'article_body', locals: { page: @page } %>
 
 <div class=<%= !@page.categories.empty? || !@page.tags.empty? ? "article-footer" : "" %> >
@@ -84,3 +80,4 @@
 
 </div><!-- end id="article" -->
 <%= add_zoom_to_article_images %>
+<%= addthis_javascript(url_for(@page.view_url), @page.title, @page.short_lead).html_safe %>
