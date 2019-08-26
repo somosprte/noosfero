@@ -29,10 +29,22 @@ Noosfero::Application.configure do
   # we have a lot of assets
   config.assets.debug = false
 
-
   config.consider_all_requests_local = true
 
   # send emails to /tmp/mails
   config.action_mailer.delivery_method = :file
+
+  # Configuration Amazon Send Mail from SMTP
+  #config.action_mailer.delivery_method = :smtp
+  #config.action_mailer.default_options = {from: 'email@domain.com'}
+  #config.action_mailer.smtp_settings = {
+        #address:              'email-smtp.us-east-1.amazonaws.com',
+        #port:                 587,
+        #domain:               'yourdomain.com',
+        #user_name:            'username',
+        #password:             'password',
+        #authentication:       'plain',
+        #openssl_verify_mode: OpenSSL::SSL::VERIFY_NONE,
+        #enable_starttls_auto: true }
 
 end
