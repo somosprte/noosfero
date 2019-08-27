@@ -174,7 +174,7 @@ module SearchHelper
   def kinds_submenu(asset)
     return '' if @kinds[asset].blank? || @kinds[asset].length == 1
     options = @kinds[asset].map {|kind| [kind.name, kind.name]}
-    options = options_for_select([[_('Todos'), nil]] + options, selected: (params[:kind]))
+    options = options_for_select([[_('All'), nil]] + options, selected: (params[:kind]))
     select_tag('kind', options, :id => 'kinds-submenu')
   end
 
