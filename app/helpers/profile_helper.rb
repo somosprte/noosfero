@@ -99,7 +99,8 @@ module ProfileHelper
       :article_tags => _('Tags'),
       :followed_profiles => _('Following'),
       :basic_information => _('Basic information'),
-      :contact => _('Contact')
+      :contact => _('Contact'),
+      :admins => _('Administrators')
     }
   end
 
@@ -166,7 +167,7 @@ module ProfileHelper
   end
 
   def treat_sex(gender)
-    { 'male' => _('Male'), 'female' => _('Female'), 'other' => _('Outro') }[gender]
+    { 'male' => _('Male'), 'female' => _('Female'), 'other' => _('Other') }[gender]
   end
 
   def treat_date(date)

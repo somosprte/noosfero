@@ -37,7 +37,7 @@ module ProfileImageHelper
     return '' unless profile.is_a?(Person)
     return '' unless !environment.enabled?('disable_gender_icon')
     sex = ( profile.sex ? profile.sex.to_s() : 'undef' )
-    title = ( sex == 'undef' ? _('non registered gender') : ( sex == 'male' ? _('Male') : (sex == 'female' ? _('Female') : _('Outro'))  ) )
+    title = ( sex == 'undef' ? _('non registered gender') : ( sex == 'male' ? _('Male') : (sex == 'female' ? _('Female') : _('Other'))  ) )
     sex = content_tag 'span',
                       content_tag( 'span', sex ),
                       :class => 'sex-'+sex,

@@ -491,7 +491,7 @@ module ApplicationHelper
   class NoosferoFormBuilder < ActionView::Helpers::FormBuilder
     extend ActionView::Helpers::TagHelper
 
-    def self.output_field(text, field_html, field_id = nil)
+    def self.output_field(text, field_html, field_id = nil, options = {})
       # try to guess an id if none given
       if field_id.nil?
         field_html =~ /id=['"]([^'"]*)['"]/
@@ -504,8 +504,9 @@ module ApplicationHelper
 
       label_html = content_tag('label', gettext(text), :class => 'formlabel', :for => field_id)
       control_html = content_tag('div', field_html, :class => field_class )
-
-      content_tag('div', label_html + control_html, :class => 'formfieldline' )
+      options[:id] = options[:id] ? options[:id].to_s + '-form-field' : nil
+      options[:class] = ['formfieldline', options[:class]].join(' ')
+      content_tag('div', label_html + control_html, options )
     end
 
     (field_helpers - %i(hidden_field)).each do |selector|
@@ -570,8 +571,8 @@ module ApplicationHelper
   # it from +field_html+ using a regular expression. In this case, make sure
   # that the first occurrence of id=['"]([^'"]*)['"] in +field_html+ if the one
   # you want (i.e. the correct id for the control )
-  def labelled_form_field(label, field_html, field_id = nil)
-    NoosferoFormBuilder::output_field(label, field_html, field_id)
+  def labelled_form_field(label, field_html, field_id = nil, options = {})
+    NoosferoFormBuilder::output_field(label, field_html, field_id, options)
   end
 
   alias_method :display_form_field, :labelled_form_field

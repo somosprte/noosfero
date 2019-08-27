@@ -8,7 +8,7 @@ class Person < Profile
                   :following_articles, :editor
 
   SEARCH_FILTERS = {
-    :order => %w[more_recent more_popular more_active],
+    :order => %w[more_recent more_popular more_active alpha_az alpha_za],
     :display => %w[compact]
   }
 

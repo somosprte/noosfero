@@ -2,11 +2,15 @@ class MapBalloonController < PublicController
 
   helper SearchHelper
 
-  before_action :load_profile, :only => [:person, :enterprise, :community]
+  before_action :load_profile, :except => [:product]
 
   def product
     @product = Product.find(params[:id])
     render :action => 'product', :layout => false
+  end
+
+  def all
+    render :action => 'profile', :layout => false
   end
 
   def person

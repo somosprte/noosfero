@@ -12,7 +12,9 @@ module SearchHelper
         'more_active' => _('More active'),
         'more_recent' => _('More recent'),
         'more_relevant' => _('More relevant'),
-        'more_comments' => _('More comments')
+        'more_comments' => _('More comments'),
+        'alpha_az' => _('A-Z'),
+        'alpha_za' => _('Z-A')
       },
       :display => {
         'map' => _('Map'),
@@ -164,11 +166,18 @@ module SearchHelper
     link_to(@enabled_searches[asset], {:controller => 'search', :action => asset}, 'data-tag' => @tag, 'data-category_path' => @category.try(:path))
   end
 
-  def assets_submenu(asset)
+  def templates_submenu(asset)
     return '' if @templates[asset].blank? || @templates[asset].length == 1
     options = @templates[asset].map {|template| [template.name, template.id]}
     options = options_for_select([[_('Choose a template'), nil]] + options, selected: (params[:template_id]))
-    select_tag('template_id', options, :id => 'submenu')
+    select_tag('template_id', options, :id => 'templates-submenu')
+  end
+
+  def kinds_submenu(asset)
+    return '' if @kinds[asset].blank? || @kinds[asset].length == 1
+    options = @kinds[asset].map {|kind| [kind.name, kind.name]}
+    options = options_for_select([[_('All'), nil]] + options, selected: (params[:kind]))
+    select_tag('kind', options, :id => 'kinds-submenu')
   end
 
 end

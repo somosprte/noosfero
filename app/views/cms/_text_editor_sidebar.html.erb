@@ -17,7 +17,7 @@
         <div class='formfield'>
           <%= select_profile_folder(
                 _('Choose folder to upload files:'),
-                :parent_id, profile, default_folder, {}, {},
+                :parent_id, profile, default_folder, {id: 'parent_id'}, {},
                 "type='Folder' or type='Gallery'"
           ) %>
           <%= button(:folder, _('New folder'), '#', :id => 'new-folder-button') %>
@@ -35,7 +35,7 @@
   </div>
 
   <div id='published-media' class='text-editor-sidebar-box' data-url='<%= url_for({:controller => 'cms', :action => 'published_media_items', :profile => profile.identifier}) %>'>
-    <%= select_profile_folder(nil, :parent_id, profile, 'recent-media', {}, {},
+    <%= select_profile_folder(nil, :parent_id, profile, 'recent-media', {id: 'parent-id'}, {},
         "type='Folder' or type='Gallery'", {:root_label => _('Recent media')}) %>
     <%= labelled_form_field _('Search among your uploaded files'), text_field_tag('q', '', placeholder: _('Write words about the file you are looking for')) %>
     <%= render :partial => 'drag_and_drop_note' %>
