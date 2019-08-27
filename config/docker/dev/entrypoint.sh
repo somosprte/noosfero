@@ -36,6 +36,7 @@ else
   bundle exec rake db:schema:load
   /noosfero/script/sample-data
 fi
+/noosfero/script/delayed_job start
 
 pidfile='/noosfero/tmp/pids/server.pid'
 if [ -f $pidfile ] ; then
