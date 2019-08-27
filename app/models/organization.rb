@@ -12,7 +12,7 @@ include OrganizationHelper
   alias_method :requires_email?, :requires_email
 
   SEARCH_FILTERS = {
-    :order => %w[more_recent more_popular more_active],
+    :order => %w[more_recent more_popular more_active alpha_az alpha_za],
     :display => %w[compact]
   }
 
