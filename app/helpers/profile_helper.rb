@@ -100,7 +100,7 @@ module ProfileHelper
       :followed_profiles => _('Following'),
       :basic_information => _('Basic information'),
       :contact => _('Contact'),
-      :admins => 'Administrador(es)'
+      :admins => _('Administrators')
     }
   end
 
