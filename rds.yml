@@ -1,0 +1,20 @@
+version: '2'
+services:
+  noosfero:
+    container_name: noosfero
+    build:
+      context: .
+      dockerfile: ./config/docker/dev/Dockerfile
+    ports:
+      - 3000:3000
+    depends_on:
+      - postgres
+    volumes:
+      - .:/noosfero
+  environment:    
+    env_file:
+      - '.env_rds'
+networks:
+    default:
+        external:
+            name: rbac_default
