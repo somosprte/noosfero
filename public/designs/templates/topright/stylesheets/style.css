@@ -1,0 +1,33 @@
+.boxes {
+  display:flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.boxes .box-1 {
+  width: 60%;
+  order: 2;
+  margin-right: 4%;
+}
+
+.boxes .box-3 {
+  order: 1;
+  width: 86%;
+}
+
+.boxes .box-2 {
+  order: 3;
+  width: 22%;
+}
+
+@media only screen and (max-width: 600px) {
+  .boxes {
+    flex-direction: column;
+  }
+  .boxes .box-1,
+  .boxes .box-2,
+  .boxes .box-3 {
+    margin: auto;
+    width: 90%;·
+  }
+}
