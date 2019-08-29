@@ -51,6 +51,9 @@ gem 'rubyzip'
 gem 'tinymce-rails', '~> 4.8', '>= 4.8.2'
 gem 'tinymce-rails-langs', '~> 4.2'
 
+# RBAC Email Service
+gem 'tlsmail'
+
 # API dependencies
 gem 'grape'
 gem 'grape-entity'
