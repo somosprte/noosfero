@@ -11,7 +11,7 @@ function_postgres_ready() {
 ruby << END
 require 'pg'
 begin
-  PG.connect(dbname: "$POSTGRES_DB", user: "$POSTGRES_USER", password: "$POSTGRES_PASSWORD", host: "$DATABASE_URL")
+  PG.connect(dbname: "$POSTGRES_DB", user: "$POSTGRES_USER", password: "$POSTGRES_PASSWORD", host: "$POSTGRES_HOST")
 rescue
   exit -1
 else
