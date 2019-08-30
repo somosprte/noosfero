@@ -80,4 +80,4 @@
 
 </div><!-- end id="article" -->
 <%= add_zoom_to_article_images %>
-<%= addthis_javascript(url_for(@page.view_url), @page.title, @page.short_lead).html_safe %>
+<%= addthis_javascript(url_for(@page.view_url), @page.title, @page.url).html_safe %>
